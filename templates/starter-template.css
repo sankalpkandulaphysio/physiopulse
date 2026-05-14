@@ -1,0 +1,728 @@
+/* =============================================================================
+   WEBSITE STARTER TEMPLATE - CSS
+   Based on PhysioPulse Healthcare Website
+
+   This is a battle-tested foundation for building professional static websites.
+   Customize the CSS variables in :root to match your brand.
+   ============================================================================= */
+
+/* =============================================================================
+   1. RESET & BASE
+   ============================================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =============================================================================
+   2. CSS VARIABLES (DESIGN SYSTEM)
+   Customize these for your brand
+   ============================================================================= */
+
+:root {
+    /* COLORS - Update these for your brand */
+    --primary: #00468C;              /* Main brand color */
+    --primary-dark: #003A75;         /* Darker variant for hovers */
+    --accent: #2F80ED;               /* Accent color for highlights */
+    --text-dark: #1F2933;            /* Main text color */
+    --text-light: #9AA5B1;           /* Secondary text, captions */
+    --bg-light: #F7F9FC;             /* Light background for sections */
+    --white: #ffffff;
+    --gray-light: #E4E7EB;
+    --gray-medium: #9AA5B1;
+
+    /* GRADIENTS */
+    --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    --gradient-light: linear-gradient(135deg, var(--bg-light) 0%, var(--gray-light) 100%);
+    --gradient-accent: linear-gradient(135deg, var(--accent) 0%, #56CCF2 100%);
+
+    /* SPACING - 8px base grid */
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 24px;
+    --spacing-lg: 48px;
+    --spacing-xl: 80px;
+    --section-padding-desktop: 80px;
+    --section-padding-mobile: 48px;
+    --grid-gap: 24px;
+
+    /* TYPOGRAPHY */
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+    /* LAYOUT */
+    --max-width: 1200px;
+    --border-radius: 8px;
+    --transition-speed: 0.3s;
+}
+
+/* =============================================================================
+   3. TYPOGRAPHY
+   ============================================================================= */
+
+body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background: var(--white);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    line-height: 1.2;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-dark);
+}
+
+h1 { font-size: 48px; font-weight: 700; }
+h2 { font-size: 36px; font-weight: 700; }
+h3 { font-size: 24px; font-weight: 600; }
+h4 { font-size: 20px; font-weight: 600; }
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* =============================================================================
+   4. LAYOUT UTILITIES
+   ============================================================================= */
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    color: var(--text-dark);
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 18px;
+    margin-bottom: var(--spacing-lg);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* =============================================================================
+   5. BUTTONS
+   ============================================================================= */
+
+.btn {
+    display: inline-block;
+    padding: 14px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: all var(--transition-speed) ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+    text-align: center;
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    color: var(--white);
+    box-shadow: 0 4px 12px rgba(0, 70, 140, 0.2);
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    box-shadow: 0 6px 20px rgba(0, 70, 140, 0.3);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+.btn-secondary:hover {
+    background: var(--primary);
+    color: var(--white);
+}
+
+/* =============================================================================
+   6. HEADER & NAVIGATION
+   ============================================================================= */
+
+.header {
+    background: var(--white);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav {
+    padding: 16px 0;
+}
+
+.nav-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.logo-img {
+    height: 45px;
+    width: auto;
+    display: block;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav-link {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-dark);
+    transition: color var(--transition-speed) ease;
+}
+
+.nav-link:hover {
+    color: var(--primary);
+}
+
+.nav-link-cta {
+    background: var(--primary);
+    color: var(--white);
+    padding: 10px 24px;
+    border-radius: 6px;
+}
+
+.nav-link-cta:hover {
+    background: var(--primary-dark);
+    color: var(--white);
+}
+
+/* Hamburger menu for mobile */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.hamburger span {
+    width: 24px;
+    height: 3px;
+    background: var(--text-dark);
+    border-radius: 2px;
+    transition: all var(--transition-speed) ease;
+}
+
+/* =============================================================================
+   7. HERO SECTION
+   ============================================================================= */
+
+.hero {
+    position: relative;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    background: var(--gradient-primary);
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle 300px at 10% 20%, rgba(255, 255, 255, 0.15) 0%, transparent 70%),
+        radial-gradient(circle 400px at 90% 15%, rgba(255, 255, 255, 0.12) 0%, transparent 70%),
+        radial-gradient(circle 250px at 20% 80%, rgba(255, 255, 255, 0.14) 0%, transparent 70%),
+        radial-gradient(circle 350px at 85% 75%, rgba(255, 255, 255, 0.10) 0%, transparent 70%),
+        radial-gradient(circle 200px at 50% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    color: var(--white);
+    padding: var(--section-padding-desktop) 0;
+}
+
+.hero-content h1 {
+    color: var(--white);
+    margin-bottom: var(--spacing-md);
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 32px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* =============================================================================
+   8. CARD COMPONENTS
+   ============================================================================= */
+
+.card {
+    padding: 32px;
+    background: var(--white);
+    border: 2px solid var(--gray-light);
+    border-radius: 16px;
+    transition: all var(--transition-speed) ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(0, 70, 140, 0.15);
+    border-color: var(--accent);
+}
+
+.card-icon {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 20px;
+    background: var(--gradient-primary);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: var(--white);
+    box-shadow: 0 4px 16px rgba(0, 70, 140, 0.2);
+}
+
+.card-title {
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+.card-description {
+    font-size: 15px;
+    color: var(--text-light);
+    margin-bottom: 16px;
+    flex-grow: 1;
+}
+
+.card-link {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 15px;
+}
+
+/* =============================================================================
+   9. GRID LAYOUTS
+   ============================================================================= */
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--grid-gap);
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--grid-gap);
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--grid-gap);
+}
+
+/* =============================================================================
+   10. SECTIONS
+   ============================================================================= */
+
+.section {
+    padding: var(--section-padding-desktop) 0;
+}
+
+.section-light {
+    background: var(--bg-light);
+}
+
+.section-white {
+    background: var(--white);
+}
+
+/* =============================================================================
+   11. CONTACT SECTION
+   ============================================================================= */
+
+.contact-section {
+    padding: var(--section-padding-desktop) 0;
+    background: var(--bg-light);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--grid-gap);
+    margin-bottom: var(--spacing-lg);
+}
+
+.contact-card {
+    background: var(--white);
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.contact-card strong {
+    display: block;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contact-value {
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 8px;
+}
+
+.contact-cta {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 32px;
+}
+
+/* Map wrapper */
+.map-wrapper {
+    margin-top: var(--spacing-lg);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.map-wrapper iframe {
+    display: block;
+    width: 100%;
+}
+
+/* =============================================================================
+   12. FOOTER
+   ============================================================================= */
+
+.footer {
+    background: var(--text-dark);
+    color: var(--white);
+    padding: 64px 0 24px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    margin-bottom: var(--spacing-lg);
+}
+
+.footer-heading {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 16px;
+    color: var(--white);
+    font-weight: 600;
+}
+
+.footer-col p {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.7;
+}
+
+.footer-col ul {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-col a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: color var(--transition-speed) ease;
+}
+
+.footer-col a:hover {
+    color: var(--white);
+}
+
+.footer-bottom {
+    padding-top: 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-bottom p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+}
+
+/* =============================================================================
+   13. CTA BANNER
+   ============================================================================= */
+
+.cta-banner {
+    background: var(--gradient-primary);
+    padding: var(--section-padding-desktop) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-content {
+    text-align: center;
+    color: var(--white);
+    position: relative;
+    z-index: 1;
+}
+
+.cta-content h2 {
+    color: var(--white);
+    margin-bottom: 16px;
+}
+
+.cta-content p {
+    font-size: 18px;
+    margin-bottom: 32px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-banner .btn-primary {
+    background: var(--white);
+    color: var(--primary);
+}
+
+.cta-banner .btn-primary:hover {
+    background: var(--bg-light);
+}
+
+.cta-banner .btn-secondary {
+    border-color: var(--white);
+    color: var(--white);
+}
+
+.cta-banner .btn-secondary:hover {
+    background: var(--white);
+    color: var(--primary);
+}
+
+/* =============================================================================
+   14. FLOATING WHATSAPP BUTTON
+   ============================================================================= */
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    z-index: 1000;
+    transition: all var(--transition-speed) ease;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.6);
+}
+
+.whatsapp-float svg {
+    width: 32px;
+    height: 32px;
+    fill: white;
+}
+
+/* =============================================================================
+   15. RESPONSIVE - MOBILE
+   ============================================================================= */
+
+@media (max-width: 767px) {
+    /* Typography */
+    h1 { font-size: 34px; }
+    h2 { font-size: 28px; }
+    body { font-size: 15px; }
+
+    /* Navigation */
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        flex-direction: column;
+        gap: 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        padding: 16px 0;
+    }
+
+    .nav-menu-open {
+        display: flex !important;
+    }
+
+    .nav-menu .nav-link {
+        display: block;
+        padding: 12px 20px;
+        width: 100%;
+    }
+
+    .nav-menu .nav-link-cta {
+        margin: 8px 20px;
+        text-align: center;
+    }
+
+    .logo-img {
+        height: 36px;
+    }
+
+    /* Hero */
+    .hero {
+        min-height: 500px;
+    }
+
+    .hero-content {
+        padding: var(--section-padding-mobile) 0;
+    }
+
+    /* Grids */
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+        grid-template-columns: 1fr;
+    }
+
+    /* Sections */
+    .section {
+        padding: var(--section-padding-mobile) 0;
+    }
+
+    /* Contact */
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-cta {
+        flex-direction: column;
+    }
+
+    .contact-cta .btn {
+        width: 100%;
+    }
+
+    .map-wrapper {
+        margin-top: 32px;
+    }
+
+    .map-wrapper iframe {
+        height: 300px;
+    }
+
+    /* Footer */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+
+    /* WhatsApp button */
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .whatsapp-float svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    /* CTA Banner */
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    .cta-buttons .btn {
+        width: 100%;
+    }
+}
+
+/* =============================================================================
+   16. RESPONSIVE - TABLET
+   ============================================================================= */
+
+@media (max-width: 1199px) and (min-width: 768px) {
+    .grid-3,
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* =============================================================================
+   END OF STYLESHEET
+   ============================================================================= */

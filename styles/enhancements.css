@@ -1,0 +1,636 @@
+/* =========================================================
+   PhysioPulse — enhancements.css  v2
+   Link AFTER main.css in every page that uses these components.
+   Place this file at: src/styles/enhancements.css
+   ========================================================= */
+
+/* ─── CSS variable safety net ────────────────────────────
+   Redundant but harmless if main.css vars are already defined */
+:root {
+    --pp-blue:        #00468C;
+    --pp-accent:      #2F80ED;
+    --pp-light:       #F7F9FC;
+    --pp-dark:        #1F2933;
+    --pp-white:       #ffffff;
+    --pp-gray-light:  #E4E7EB;
+    --pp-gray-mid:    #9AA5B1;
+    --pp-serif:       'Playfair Display', serif;
+    --pp-sans:        'Inter', sans-serif;
+    --pp-grad-primary: linear-gradient(135deg, #00468C 0%, #2F80ED 100%);
+    --pp-grad-accent:  linear-gradient(135deg, #2F80ED 0%, #56CCF2 100%);
+}
+
+/* ═══════════════════════════════════════════════════════
+   1. HERO ENHANCEMENTS
+   ═══════════════════════════════════════════════════════ */
+
+/* Emotional headline with Playfair italic moment */
+.hero-split .hero-content h1 {
+    font-size: clamp(32px, 4.5vw, 56px);
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+}
+
+.hero-split .hero-content h1 em {
+    font-style: italic;
+    font-family: var(--pp-serif);
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* ── Doctor identity tag ──────────────────────────────── */
+.hero-doctor-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding: 10px 18px 10px 10px;
+    background: rgba(255, 255, 255, 0.13);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 40px;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.hero-doctor-avatar {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.22);
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--pp-white);
+    letter-spacing: 0.02em;
+}
+
+.hero-doctor-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.hero-doctor-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--pp-white);
+    line-height: 1.2;
+}
+
+.hero-doctor-creds {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.3;
+    white-space: nowrap;
+}
+
+/* ── CTA group ───────────────────────────────────────── */
+.hero-cta-group {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+/* Ghost WhatsApp button in the hero */
+.btn-hero-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 24px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    color: var(--pp-white);
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    background: transparent;
+    transition: background 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.btn-hero-ghost:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.8);
+    color: var(--pp-white);
+}
+
+.btn-hero-ghost svg {
+    flex-shrink: 0;
+}
+
+/* ── Trust micro-strip ───────────────────────────────── */
+.hero-trust-strip {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.78);
+    line-height: 1.4;
+}
+
+/* ── Hero image wrap (fixes overflow:hidden badge clipping) */
+.hero-image-wrap {
+    position: relative;
+    display: block;
+    /* extra padding at bottom-left so badge has room */
+    padding-bottom: 20px;
+    padding-left: 20px;
+}
+
+.hero-image-frame {
+    border-radius: 16px;
+    overflow: hidden;          /* clip the image, not the badge */
+    box-shadow: 0 20px 56px rgba(0, 0, 0, 0.28);
+}
+
+.hero-image-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* NIMS badge — sits outside .hero-image-frame, inside .hero-image-wrap */
+.hero-badge {
+    position: absolute;
+    bottom: 0;          /* anchored to bottom of wrap (= image bottom + padding) */
+    left: 0;
+    background: var(--pp-white);
+    border-radius: 12px;
+    padding: 10px 18px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.2;
+    z-index: 2;
+}
+
+.hero-badge-line1 {
+    font-family: var(--pp-serif);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--pp-blue);
+    line-height: 1;
+}
+
+.hero-badge-line2 {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--pp-gray-mid);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+/* ═══════════════════════════════════════════════════════
+   2. STATS STRIP
+   ═══════════════════════════════════════════════════════ */
+.stats-strip {
+    background: var(--pp-blue);
+    padding: 0;          /* padding lives on the items */
+    overflow: hidden;
+}
+
+.stats-strip-grid {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: nowrap;   /* stays single row on desktop */
+}
+
+.stats-strip-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 32px;
+    flex: 1;
+    min-width: 0;        /* allow flex shrink */
+}
+
+.stats-strip-num {
+    font-family: var(--pp-serif);
+    font-size: clamp(26px, 3vw, 38px);
+    font-weight: 700;
+    color: var(--pp-white);
+    line-height: 1.1;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.stats-strip-label {
+    font-size: 13px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.72);
+    max-width: 150px;
+    display: block;
+}
+
+.stats-strip-divider {
+    width: 1px;
+    background: rgba(255, 255, 255, 0.18);
+    align-self: stretch;
+    flex-shrink: 0;
+    margin: 24px 0;
+}
+
+/* ═══════════════════════════════════════════════════════
+   3. DOCTOR INTRO SECTION
+   ═══════════════════════════════════════════════════════ */
+.doctor-intro-section {
+    padding: 80px 0;
+    background: var(--pp-white);
+    border-bottom: 1px solid var(--pp-gray-light);
+}
+
+.doctor-intro-grid {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+/* Left column: image + credentials */
+.doctor-intro-image-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.doctor-intro-img-wrap {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 16px 48px rgba(0, 70, 140, 0.16);
+    line-height: 0;  /* removes gap under img */
+}
+
+.doctor-intro-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.doctor-intro-credentials {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.credential-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    background: var(--pp-light);
+    border: 1px solid var(--pp-gray-light);
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--pp-dark);
+    transition: border-color 0.2s, background 0.2s;
+    line-height: 1.35;
+}
+
+.credential-badge:hover {
+    border-color: var(--pp-accent);
+    background: var(--pp-white);
+}
+
+.credential-icon {
+    font-size: 17px;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+/* Right column: content */
+.doctor-intro-content {
+    padding-top: 8px;
+}
+
+.doctor-intro-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--pp-accent);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.doctor-intro-label::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 2px;
+    background: var(--pp-accent);
+}
+
+.doctor-intro-name {
+    font-family: var(--pp-serif);
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 700;
+    color: var(--pp-dark);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+    /* override any inherited section-title styles */
+    text-align: left !important;
+}
+
+.doctor-intro-title {
+    font-size: 16px;
+    color: var(--pp-gray-mid);
+    margin-bottom: 28px;
+    font-weight: 400;
+}
+
+.doctor-intro-quote {
+    font-family: var(--pp-serif);
+    font-size: 19px;
+    font-style: italic;
+    color: var(--pp-blue);
+    border-left: 3px solid var(--pp-accent);
+    padding-left: 20px;
+    margin: 0 0 24px;
+    line-height: 1.55;
+}
+
+.doctor-intro-bio {
+    font-size: 15px;
+    line-height: 1.75;
+    color: #4A5568;
+    margin-bottom: 28px;
+}
+
+.btn-outline-dark {
+    display: inline-block;
+    padding: 12px 24px;
+    border: 2px solid var(--pp-dark);
+    border-radius: 8px;
+    color: var(--pp-dark);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn-outline-dark:hover {
+    background: var(--pp-dark);
+    color: var(--pp-white);
+}
+
+/* ═══════════════════════════════════════════════════════
+   4. TESTIMONIALS UPGRADE
+   ═══════════════════════════════════════════════════════ */
+.testimonials-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.testimonials-rating-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--pp-white);
+    border: 1px solid var(--pp-gray-light);
+    border-radius: 40px;
+    padding: 8px 20px;
+    font-size: 14px;
+    color: var(--pp-dark);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    margin-bottom: 12px;
+}
+
+.testimonials-rating-pill .stars {
+    color: #F6C90E;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+.testimonial-stars {
+    color: #F6C90E;
+    font-size: 17px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.testimonial-avatar {
+    width: 40px;
+    height: 40px;
+    background: var(--pp-grad-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--pp-white);
+    flex-shrink: 0;
+}
+
+/* Override the base .testimonial-author to allow flex with avatar */
+.testimonial-author {
+    display: flex !important;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--pp-gray-light);
+}
+
+.testimonial-author div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.testimonial-author strong {
+    display: block;
+    font-size: 14px;
+    color: var(--pp-dark);
+    font-weight: 600;
+}
+
+.testimonial-author span {
+    display: block;
+    font-size: 12px;
+    color: var(--pp-gray-mid);
+}
+
+/* ═══════════════════════════════════════════════════════
+   5. CTA TRUST NOTE
+   ═══════════════════════════════════════════════════════ */
+.cta-trust-note {
+    display: block;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.68);
+    margin-top: 16px;
+    letter-spacing: 0.01em;
+}
+
+/* Used on condition pages too */
+.cta-content .cta-trust-note {
+    margin-top: 14px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   6. ACTIVE NAV STATES
+   ═══════════════════════════════════════════════════════ */
+.nav-link.is-active,
+.nav-link[aria-current="page"],
+.nav-link[aria-current="true"] {
+    color: var(--pp-accent) !important;
+    font-weight: 600;
+}
+
+.header.scrolled .nav-link.is-active,
+.header.scrolled .nav-link[aria-current="page"] {
+    color: var(--pp-accent) !important;
+}
+
+.dropdown-link.is-active,
+.dropdown-link[aria-current="page"] {
+    color: var(--pp-accent) !important;
+    font-weight: 600;
+    background: rgba(47, 128, 237, 0.06);
+}
+
+/* ═══════════════════════════════════════════════════════
+   7. PLAYFAIR TYPOGRAPHY MOMENTS
+   ═══════════════════════════════════════════════════════ */
+.section-title {
+    font-family: var(--pp-serif);
+    letter-spacing: -0.01em;
+}
+
+.why-item h3 {
+    font-family: var(--pp-serif);
+}
+
+/* ═══════════════════════════════════════════════════════
+   8. RESPONSIVE
+   ═══════════════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+    .doctor-intro-grid {
+        grid-template-columns: 300px 1fr;
+        gap: 40px;
+    }
+
+    .stats-strip-item {
+        padding: 32px 20px;
+    }
+
+    .stats-strip-label {
+        max-width: 130px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Hero */
+    .hero-split .hero-content h1 {
+        font-size: 30px;
+    }
+
+    .hero-doctor-creds {
+        white-space: normal;
+    }
+
+    .hero-cta-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .btn-hero-ghost {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero-image-wrap {
+        position: relative;
+        display: block;
+        padding-bottom: 0;
+        padding-left: 0;
+    }
+
+    /* Stats strip: 2×2 grid on tablet */
+    .stats-strip-grid {
+        flex-wrap: wrap;
+    }
+
+    .stats-strip-item {
+        flex: 1 1 45%;
+        padding: 28px 16px;
+        min-width: 140px;
+    }
+
+    .stats-strip-divider {
+        display: none;  /* hide dividers when wrapping */
+    }
+
+    /* Doctor intro: stacked */
+    .doctor-intro-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .doctor-intro-image-col {
+        max-width: 340px;
+        margin: 0 auto;
+    }
+
+    .doctor-intro-name {
+        font-size: 34px;
+    }
+
+    .doctor-intro-quote {
+        font-size: 17px;
+    }
+
+    .testimonials-header {
+        margin-bottom: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Stats: single column */
+    .stats-strip-item {
+        flex: 1 1 100%;
+        padding: 24px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .stats-strip-item:last-child {
+        border-bottom: none;
+    }
+
+    .hero-doctor-tag {
+        border-radius: 14px;
+        padding: 10px 14px;
+    }
+
+    .hero-trust-strip {
+        font-size: 12px;
+        gap: 6px;
+    }
+
+    .hero-badge {
+        bottom: -4px;
+        left: 0;
+        padding: 8px 14px;
+    }
+
+    .hero-badge-line1 {
+        font-size: 16px;
+    }
+}
